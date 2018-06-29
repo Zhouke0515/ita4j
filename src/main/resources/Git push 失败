@@ -1,0 +1,5 @@
+1、
+    正确搭建GIT环境，参考https://blog.csdn.net/celljay/article/details/55255524
+2、
+    执行 git config --system http.sslcainfo "D:\program\git\bin\curl-ca-bundle.crt"
+    或 git config --system http.sslverify false
