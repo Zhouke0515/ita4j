@@ -14,7 +14,7 @@ public class ArrayUtilTest {
 
     @Test
     public void createArray() {
-        int[] array = ArrayUtil.createArray(20);
+        int[] array = ArrayUtil.createRandomArray(20);
         for (int item : array) {
             System.out.print(item + ", ");
         }

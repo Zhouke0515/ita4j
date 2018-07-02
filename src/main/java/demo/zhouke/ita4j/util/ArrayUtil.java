@@ -12,7 +12,7 @@ public class ArrayUtil {
      * @param length 数组长度
      * @return 整形数组
      */
-    public static final int[] createArray(int length) {
+    public static final int[] createRandomArray(int length) {
         int[] array = new int[length];
         while (length > 0) {
             int randNumber = (int) (Math.random() * RANDOM_SIZE * length);
