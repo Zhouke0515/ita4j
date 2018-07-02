@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+    <Appenders>
+        <!-- 輸出到監視器 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+        <!-- 按天备份 -->
+        <RollingFile name="File" fileName="logs/new.log" filePattern="logs/log_%d{yyyy-MM-dd}_%i.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+            <Policies>
+                <!-- 更新时间 -->
+                <TimeBasedTriggeringPolicy modulate="true" interval="24" />
+                <SizeBasedTriggeringPolicy size="128KB" />
+            </Policies>
+            <!-- 最多8个日志 -->
+            <DefaultRolloverStrategy max="8" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger level="debug">
+            <!-- 输出到文件 -->
+            <AppenderRef ref="File" />
+        </Logger>
+        <Root level="debug">
+            <!-- 输出至显示器 -->
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>

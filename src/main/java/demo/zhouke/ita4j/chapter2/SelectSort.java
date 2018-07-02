@@ -1,10 +1,17 @@
 package demo.zhouke.ita4j.chapter2;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * 习题2.2-2 选择排序
  * Create By Zhouke on 2018/07/02
  */
 public class SelectSort extends Sort {
+
+    private Logger log = LogManager.getLogger(this.getClass());
+
     public SelectSort(int[] array) {
         this.array = array;
     }

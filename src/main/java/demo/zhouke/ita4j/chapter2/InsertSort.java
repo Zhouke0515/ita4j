@@ -1,11 +1,15 @@
 package demo.zhouke.ita4j.chapter2;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * 插入排序
  * Create By Zhouke on 2018/06/26
  */
 public class InsertSort extends Sort {
 
+    private Logger log = LogManager.getLogger(this.getClass());
     public InsertSort(int[] array) {
         this.array = array;
     }
@@ -29,6 +33,7 @@ public class InsertSort extends Sort {
 
     @Override
     public int[] sortByDesc(int[] array) {
+        log.info("start at : {}", System.currentTimeMillis());
         for (int i = 1; i < array.length; i++) {
             int key = array[i];
             int j = i - 1;
@@ -39,6 +44,7 @@ public class InsertSort extends Sort {
                 j--;
             }
         }
+        log.info("end at : {}", System.currentTimeMillis());
         return array;
     }
 
@@ -48,6 +54,7 @@ public class InsertSort extends Sort {
      * @return
      */
     public int[] sortDAC(int[] array) {
+        log.info("start at : {}", System.currentTimeMillis());
         int[] left = new int[array.length / 2];
         int[] right = new int[array.length - left.length];
         for (int i = 0; i < left.length; i++) {
@@ -64,7 +71,7 @@ public class InsertSort extends Sort {
         }
         sortByAsc(left);
         sortByAsc(right);
-
+        log.info("end at : {}", System.currentTimeMillis());
         return merge(left, right);
     }
 
