@@ -6,34 +6,36 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 /**
- * Create By Zhouke on 2018/07/02
+ * 运行测试：
+ * 10W-13374
+ * 100W-
+ * Create By Zhouke on 2018/07/03
  */
-public class SelectSortTest {
+public class BubbleSortTest {
+
     private Logger logger = LogManager.getLogger(this.getClass());
-    private SelectSort selectSort;
+    private BubbleSort bubbleSort;
     private int[] array;
     private static final int ARRAY_LENGTH = 1000*1000;
     @org.junit.Before
     public void setUp(){
         array = ArrayUtil.createRandomArray(ARRAY_LENGTH);
-        selectSort = new SelectSort(array);
+        bubbleSort = new BubbleSort();
     }
+
     @Test
     public void sortByDesc() {
-        int[] result = selectSort.sortByDesc(array);
-        for(int item : result) {
-            System.out.print(item + ",");
-        }
     }
 
     @Test
     public void sortByAsc() {
         long startTime = System.currentTimeMillis();
         logger.debug("start:{}", startTime);
-        int[] result = selectSort.sortByAsc(array);
+        int[] result = bubbleSort.sortByAsc(array);
         long endTime = System.currentTimeMillis();
         logger.debug("end:{}", endTime);
         long cost = endTime - startTime;
         logger.debug("cost:{}", cost);
+        logger.debug("{}",result);
     }
 }

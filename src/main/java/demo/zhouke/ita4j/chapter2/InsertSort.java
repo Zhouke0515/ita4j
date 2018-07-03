@@ -48,45 +48,5 @@ public class InsertSort extends Sort {
         return array;
     }
 
-    /**
-     * divide and conquer 分而治之
-     *
-     * @return
-     */
-    public int[] sortDAC(int[] array) {
-        log.info("start at : {}", System.currentTimeMillis());
-        int[] left = new int[array.length / 2];
-        int[] right = new int[array.length - left.length];
-        for (int i = 0; i < left.length; i++) {
-            left[i] = array[i];
-        }
-        for (int i = right.length; i < array.length; i++) {
-            right[i - right.length] = array[i];
-        }
-        if (left.length > 1000) {
-            sortDAC(left);
-        }
-        if (right.length > 1000) {
-            sortDAC(left);
-        }
-        sortByAsc(left);
-        sortByAsc(right);
-        log.info("end at : {}", System.currentTimeMillis());
-        return merge(left, right);
-    }
 
-    private int[] merge(int[] left, int[] right) {
-        int[] mergeArray = new int[left.length + right.length];
-        int leftIndex = 0, rightIndex = 0;
-        for (int i = 0; i < mergeArray.length; i++) {
-            if (leftIndex < left.length && right[rightIndex] > left[leftIndex]) {
-                mergeArray[i] = left[leftIndex];
-                leftIndex++;
-            } else {
-                mergeArray[i] = right[rightIndex];
-                rightIndex++;
-            }
-        }
-        return mergeArray;
-    }
 }
