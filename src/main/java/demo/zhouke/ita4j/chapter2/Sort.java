@@ -6,7 +6,7 @@ package demo.zhouke.ita4j.chapter2;
 public abstract class Sort {
     protected int[] array;
     abstract public int[] sortByDesc(int[] array);
-    abstract public int[] sortByAsc(int[] array);
+    abstract public int[] sortByAsc(int[] array) throws Exception;
 
     public int getMinValue(){
         int temp = array[0];

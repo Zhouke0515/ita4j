@@ -21,4 +21,23 @@ public class ArrayUtil {
         }
         return array;
     }
+
+    public static int[] subArray(int[] array, int start, int end) throws Exception {
+        if (array == null) {
+            return new int[0];
+        }
+
+        if (start < 0 || end > array.length) {
+            throw new IndexOutOfBoundsException("index out of bounds");
+        }
+
+        if (end < start) {
+            throw new Exception("end can't less than start");
+        }
+        int[] subArray = new int[end - start];
+        for (int i = start; i < end; i++) {
+            subArray[i - start] = array[i];
+        }
+        return subArray;
+    }
 }

@@ -19,4 +19,22 @@ public class ArrayUtilTest {
             System.out.print(item + ", ");
         }
     }
+
+    @Test
+    public void subArray() {
+        int[] testArray = null;
+        try {
+            int[] result = ArrayUtil.subArray(testArray, 0, 2);
+            testArray = new int[0];
+            result = ArrayUtil.subArray(testArray, 0, 0);
+            testArray = new int[]{1, 2, 4, 5, 6};
+            result = ArrayUtil.subArray(testArray, 0, 2);
+
+            result = ArrayUtil.subArray(testArray, 4, 2);
+            result = ArrayUtil.subArray(testArray, 1, 5);
+        } catch (Exception e) {
+
+        }
+
+    }
 }
